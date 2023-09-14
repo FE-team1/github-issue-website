@@ -1,22 +1,31 @@
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import styled from "styled-components";
 
-const OneIssue = ({ issue }) => {
+const OneIssue = ({ item }) => {
   const navigate = useNavigate();
-  const [query, setQuery] = useSearchParams();
-  let searchQuery = query.get("q");
+  // const [query, setQuery] = useSearchParams();
+  // let searchQuery = query.get("q");
+  // const goToDetail = () => {
+  //   console.log(issue.id);
+  //   console.log("쿼리값은", searchQuery);
+  //   navigate(`/?q=${issue.id}`);
+  // };
+  const [detail, setDetail] = useState([]);
+  const id = item.number;
+
   const goToDetail = () => {
-    console.log(issue.id);
-    console.log("쿼리값은", searchQuery);
-    navigate(`/?q=${issue.id}`);
+    console.log(id);
   };
   return (
     <S.Wrapper onClick={goToDetail}>
-      <div>
-        <span>#{issue.id}</span>
-        <span>{issue.content}</span>
-      </div>
-      <div>comment</div>
+      <S.ErrorHeader>
+        <span>#{item.number}</span>
+        <span>comments: {item.comments}</span>
+      </S.ErrorHeader>
+      <div>content: {item.title}</div>
+      <p>{item.updated_at}</p>
     </S.Wrapper>
   );
 };
@@ -34,6 +43,12 @@ const Wrapper = styled.div`
   cursor: pointer;
 `;
 
+const ErrorHeader = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
 const S = {
   Wrapper,
+  ErrorHeader,
 };
