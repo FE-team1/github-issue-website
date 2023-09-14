@@ -1,16 +1,28 @@
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
+import { getIssue } from "../reducer/issue";
+import { useEffect } from "react";
 
 const NavBar = () => {
+  const dispatch = useDispatch();
+  const issue = useSelector(state => state.issue);
+  console.log(issue);
+
+  useEffect(() => {
+    dispatch(getIssue({ title:'example' }))
+  }, [])
+
     return (
         <Wrapper>
             <Header>
-                <GithubIcon src='/img/38401.png'></GithubIcon>
-                <h3 style={{paddingTop:"27px"}}>Git Issue.net</h3>
+              <GithubIcon src='/img/38401.png'></GithubIcon>
+              <h3 style={{paddingTop:"27px"}}>Git Issue.net</h3>
             </Header>
             <Container>
               <h3>Issue</h3>
               <ul>
-                  <li>get list Issues</li>
+                {/* 나중에 link나 a태그 넣어서 연결 */}
+                <li>get list Issues</li>
               </ul>
             </Container>
         </Wrapper>
