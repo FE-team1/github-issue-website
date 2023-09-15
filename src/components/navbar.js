@@ -1,16 +1,15 @@
-import { useDispatch, useSelector } from "react-redux";
+
 import styled from "styled-components";
-import { getIssue } from "../reducer/issue";
-import { useEffect } from "react";
+
 
 const NavBar = () => {
-  const dispatch = useDispatch();
-  const issue = useSelector(state => state.issue);
-  console.log(issue);
+  // const dispatch = useDispatch();
+  // const issue = useSelector(state => state.issue);
+  // console.log(issue);
 
-  useEffect(() => {
-    dispatch(getIssue({ title:'example' }))
-  }, [])
+  // useEffect(() => {
+  //   dispatch(getIssue({ title:'example' }))
+  // }, [])
 
     return (
         <Wrapper>
