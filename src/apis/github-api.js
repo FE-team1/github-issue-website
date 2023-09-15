@@ -16,7 +16,7 @@ const useIssueList = (pageNumber) => {
     issueListApi();
   }, [pageNumber]);
 
-  return { issue };
+  return { issue, setIssue };
 };
 
 export default useIssueList;
