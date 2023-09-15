@@ -6,6 +6,7 @@ const Pagination = ({maxPage, pageLimit, setPage, page}) => {
     const [btnNum, setBtnNum] = useState(0);
     const [currentPage, setCurrentPage] = useState(1);
     const [limitPageArr, setLimitPageArr] = useState([]);
+    let [btnActive, setBtnActive] = useState(false);
 
     const createArr = (n) => {
         var iArr = []
@@ -70,9 +71,10 @@ const Pagination = ({maxPage, pageLimit, setPage, page}) => {
     }
 
     // 움직였을때 한 번에 바뀌도록
-    const onChangedPage = (n) => {
+    const onChangedPage = (n, e) => {
         setBtnNum(n);
         setCurrentPage(n);
+        setPage(n);
     }
 
     return (
@@ -86,9 +88,10 @@ const Pagination = ({maxPage, pageLimit, setPage, page}) => {
                 {
                     // 답답할 노릇 왜 안뜰까.. 답답하다ㅏㅁ얼 ㅣ;ㅁ
                     // ??됐다 똑같이 했는데? ㅋㅋㅋ??ㅋ??ㅋ??..
-                    limitPageArr.map((n) => (
+                    limitPageArr.map((n, idx) => (
                         // n을 사용할 수 있게 물려준다
-                        <PageBtn onClick={() => onChangedPage(n)}>
+                        // useRef사용해서 포커싱ㅇ을 주려고 생각중..
+                        <PageBtn value={idx} onClick={() => onChangedPage(n)}>
                             {n}
                         </PageBtn>
                     ))
@@ -119,4 +122,8 @@ const PageBtn = styled.button`
     cursor: pointer;
     box-sizing: border-box;
     position: relative;
+    &:focus {
+        background-color: gray;
+    }
 `
+
