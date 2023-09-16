@@ -15,7 +15,7 @@ const OneIssue = ({ item }) => {
   const [detail, setDetail] = useState([]);
 
   const goToDetail = () => {
-    const id = item.number;
+    const id = [item.number, item.created_at, item.updated_at];
     navigate(`/detail?q=${id}`);
   };
 

@@ -4,10 +4,13 @@ import OneIssue from "./components/oneIssue";
 import useIssueList from "../apis/github-api";
 import styled from "styled-components";
 import NavBar from "../components/navbar";
+// import Spinner from "../components/spinner";
 
 const Issue = () => {
   const { issue, setIssue } = useIssueList();
   console.log(issue);
+
+  // const [loading, setLoading] = useState(true);
 
   /**
    * 
@@ -27,7 +30,11 @@ const Issue = () => {
     console.log(e.target.value);
     if (e.target.value === "update") {
       const sortUpdate = [...issue].sort(function (a, b) {
-        return a.updated_at < b.updated_at ? -1 : a.updated_at > b.updated_at ? 1 : 0;
+        return a.updated_at < b.updated_at
+          ? -1
+          : a.updated_at > b.updated_at
+          ? 1
+          : 0;
       });
       setIssue(sortUpdate);
     } else if (e.target.value === "comment") {
@@ -41,6 +48,7 @@ const Issue = () => {
       });
       setIssue(sortComment);
     }
+    // setLoading(false); setLoading을 써야하는데 사용해야하는곳을 못찾음
   };
 
   return (
@@ -57,6 +65,8 @@ const Issue = () => {
             <option>comment</option>
           </S.SelectBox>
         </S.FilterLi>
+        {/* {loading ? <Spinner /> : <OneIssue />}
+        이거를 밑에 맵 돌리는거에 걸면 오류가 난다. */}
         {issue.map((item) => (
           <OneIssue item={item} />
         ))}
