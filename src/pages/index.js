@@ -9,28 +9,38 @@ const Issue = () => {
   const { issue, setIssue } = useIssueList();
   console.log(issue);
 
-  // Id 순으로 필터링
-  const onSortId = () => {
-    const sortId = [...issue].sort(function (a, b) {
-      return a.number < b.number ? -1 : a.number > b.number ? 1 : 0;
-    });
-    setIssue(sortId);
-  };
+  /**
+   * 
+   @description
+   - ddd
+   @todo
+   -
+   @title
+   - jsdocs
+   */
 
-  // Update 시간으로 필터링
-  const onSortUpdate = () => {
-    const sortUpdate = [...issue].sort(function (a, b) {
-      return a.updated_at < b.updated_at ? -1 : a.updated_at > b.updated_at ? 1 : 0;
-    });
-    setIssue(sortUpdate);
-  };
-
-  // Comment 갯수로 필터링
-  const onSortComment = () => {
-    const sortComment = [...issue].sort(function (a, b) {
-      return a.comments < b.comments ? -1 : a.comments > b.comments ? 1 : 0;
-    });
-    setIssue(sortComment);
+  /*
+  event 객체를 사용해 option의 value값을 받아올 수 있음
+  select의 onChange 함수를 사용하여 option의 value가 변경 => 변경된 value값을 기준으로 필터링
+  */
+  const onChangedFilter = (e) => {
+    console.log(e.target.value);
+    if (e.target.value === "update") {
+      const sortUpdate = [...issue].sort(function (a, b) {
+        return a.updated_at < b.updated_at ? -1 : a.updated_at > b.updated_at ? 1 : 0;
+      });
+      setIssue(sortUpdate);
+    } else if (e.target.value === "comment") {
+      const sortComment = [...issue].sort(function (a, b) {
+        return a.comments < b.comments ? -1 : a.comments > b.comments ? 1 : 0;
+      });
+      setIssue(sortComment);
+    } else if (e.target.value === "id") {
+      const sortComment = [...issue].sort(function (a, b) {
+        return a.number < b.number ? -1 : a.number > b.number ? 1 : 0;
+      });
+      setIssue(sortComment);
+    }
   };
 
   return (
@@ -40,9 +50,12 @@ const Issue = () => {
         <h2>repository</h2>
         <S.FilterLi>
           Filter
-          <span onClick={onSortId}>id</span>
-          <span onClick={onSortUpdate}>update</span>
-          <span onClick={onSortComment}>comment</span>
+          <S.SelectBox onChange={onChangedFilter}>
+            <option selected>---filter---</option>
+            <option>id</option>
+            <option>update</option>
+            <option>comment</option>
+          </S.SelectBox>
         </S.FilterLi>
         {issue.map((item) => (
           <OneIssue item={item} />
@@ -73,7 +86,12 @@ const FilterLi = styled.div`
   }
 `;
 
+const SelectBox = styled.select`
+  margin-left: 10px;
+`;
+
 const S = {
   Wrapper,
   FilterLi,
+  SelectBox,
 };
