@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const useIssueList = (pageNumber) => {
+const useIssueList = () => {
   const [issue, setIssue] = useState([]); // 데이터 저장
 
   useEffect(() => {
@@ -14,7 +14,7 @@ const useIssueList = (pageNumber) => {
       });
     };
     issueListApi();
-  }, [pageNumber]);
+  }, []);
 
   return { issue, setIssue };
 };

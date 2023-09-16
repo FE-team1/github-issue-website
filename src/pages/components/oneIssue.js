@@ -10,14 +10,15 @@ const OneIssue = ({ item }) => {
   // const goToDetail = () => {
   //   console.log(issue.id);
   //   console.log("쿼리값은", searchQuery);
-  //   navigate(`/?q=${issue.id}`);
+
   // };
   const [detail, setDetail] = useState([]);
-  const id = item.number;
 
   const goToDetail = () => {
-    console.log(id);
+    const id = item.number;
+    navigate(`/detail?q=${id}`);
   };
+
   return (
     <S.Wrapper onClick={goToDetail}>
       <S.ErrorHeader>
