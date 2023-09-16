@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
@@ -25,6 +26,27 @@ const OneIssue = ({ item }) => {
       </S.ErrorHeader>
       <div>content: {item.title}</div>
       <p>{item.updated_at}</p>
+=======
+import { useNavigate, useSearchParams } from "react-router-dom";
+import styled from "styled-components";
+
+const OneIssue = ({ issue }) => {
+  const navigate = useNavigate();
+  const [query, setQuery] = useSearchParams();
+  let searchQuery = query.get("q");
+  const DetailIssue = () => {
+    console.log(issue.id);
+    console.log("쿼리값은", searchQuery);
+    navigate(`/?q=${issue.id}`);
+  };
+  return (
+    <S.Wrapper onClick={DetailIssue}>
+      <div>
+        <span>#{issue.id}</span>
+        <span>{issue.content}</span>
+      </div>
+      <div>comment</div>
+>>>>>>> 5011cfecc6602e5eb642b4aec633c53b39e357e0
     </S.Wrapper>
   );
 };
@@ -42,6 +64,7 @@ const Wrapper = styled.div`
   cursor: pointer;
 `;
 
+<<<<<<< HEAD
 const ErrorHeader = styled.div`
   display: flex;
   flex-direction: column;
@@ -51,3 +74,8 @@ const S = {
   Wrapper,
   ErrorHeader,
 };
+=======
+const S = {
+  Wrapper,
+};
+>>>>>>> 5011cfecc6602e5eb642b4aec633c53b39e357e0

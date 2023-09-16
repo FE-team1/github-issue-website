@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+<<<<<<< HEAD
     "@reduxjs/toolkit": "^1.9.5",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -15,6 +16,17 @@
     "react-router-dom": "^6.15.0",
     "react-scripts": "5.0.1",
     "rm": "^0.1.8",
+=======
+    "@fortawesome/fontawesome-free": "^6.4.2",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "fontawesome": "^5.6.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.15.0",
+    "react-scripts": "5.0.1",
+>>>>>>> 5011cfecc6602e5eb642b4aec633c53b39e357e0
     "styled-components": "^6.0.7",
     "styled-reset": "^4.5.1",
     "web-vitals": "^2.1.4"
@@ -42,6 +54,7 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+<<<<<<< HEAD
   },
   "msw": {
     "workerDirectory": "public"
@@ -55,5 +68,7 @@
     "eslint-plugin-unused-imports": "^3.0.0",
     "husky": "^8.0.3",
     "prettier": "^3.0.3"
+=======
+>>>>>>> 5011cfecc6602e5eb642b4aec633c53b39e357e0
   }
 }

@@ -1,6 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # github-issue-website
 =======
+=======
+>>>>>>> 5011cfecc6602e5eb642b4aec633c53b39e357e0
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -71,4 +74,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<<<<<<< HEAD
 >>>>>>> bf886ca (feat: navbar공용컴포넌트, route생성)
+=======
+>>>>>>> 5011cfecc6602e5eb642b4aec633c53b39e357e0
