@@ -17,9 +17,9 @@ const DetailIssue = () => {
   return (
     <>
       {loading ? (
-        <S.Wrapper>
+        <SpinnerBox>
           <ClipLoader loading={loading} size={150} aria-label="Loading Spinner" data-testid="loader" />
-        </S.Wrapper>
+        </SpinnerBox>
       ) : (
         <S.Wrapper>
           <NavBar />
@@ -53,6 +53,12 @@ const ContentBox = styled.div`
   }
 `;
 
+const SpinnerBox = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+`;
 const S = {
   Wrapper,
   ContentBox,
