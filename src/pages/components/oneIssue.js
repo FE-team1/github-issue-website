@@ -5,14 +5,6 @@ import styled from "styled-components";
 
 const OneIssue = ({ item }) => {
   const navigate = useNavigate();
-  // const [query, setQuery] = useSearchParams();
-  // let searchQuery = query.get("q");
-  // const goToDetail = () => {
-  //   console.log(issue.id);
-  //   console.log("쿼리값은", searchQuery);
-
-  // };
-  const [detail, setDetail] = useState([]);
 
   const goToDetail = () => {
     const id = item.number;
