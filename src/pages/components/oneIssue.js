@@ -1,7 +1,3 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
-import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
-import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 

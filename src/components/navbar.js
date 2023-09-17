@@ -28,12 +28,7 @@ const NavBar = () => {
 
 export default NavBar;
 
-const Wrapper = styled.div`
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-`;
+const Wrapper = styled.div``;
 
 const Header = styled.div`
 	display: flex;

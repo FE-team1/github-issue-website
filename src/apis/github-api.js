@@ -9,7 +9,7 @@ const useIssueList = page => {
 	// subView는 전체 중에서 일부 (10개씩)
 	const [subView, setSubView] = useState([]);
 
-	const issueListApi = async () => {
+	const issueListApi = async page => {
 		const response = await axios.get(
 			`https://api.github.com/repos/facebook/react/issues`,
 			{
@@ -27,7 +27,7 @@ const useIssueList = page => {
 		// 열개만 표시되게..ㅜ
 		setSubView(issue.slice(page, (page + 1) * 10));
 	}, [page]);
-	return [subView, issueListApi];
+	return [subView, issueListApi, setSubView];
 };
 
 export default useIssueList;

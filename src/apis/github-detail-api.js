@@ -3,9 +3,11 @@ import axios from 'axios';
 
 const useDetailList = id => {
 	const [detail, setDetail] = useState([]);
+	let [loading, setLoading] = useState(false);
 
 	useEffect(() => {
 		const issueDetailApi = async () => {
+			setLoading(true);
 			const response = await axios.get(
 				`https://api.github.com/repos/facebook/react/issues/${id}`,
 				{
@@ -15,13 +17,12 @@ const useDetailList = id => {
 				},
 			);
 			console.log(response);
-			// setDetail((prevIssue) => {
-			//   return [...prevIssue, ...response.data];
-			// });
+			setDetail(response.data);
+			setLoading(false);
 		};
 		issueDetailApi();
 	}, [id]);
-	return [detail, setDetail];
+	return { detail, setDetail, loading };
 };
 
 export default useDetailList;
